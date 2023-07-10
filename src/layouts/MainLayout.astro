@@ -1,0 +1,22 @@
+---
+import Header from '../components/Header.astro';
+import PageContent from '../components/PageContent.astro';
+
+const {pageTitle, activeItemID} = Astro.props;
+---
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <title>Dhruv Kapur - {pageTitle}</title>
+    </head>
+    <body>
+        <Header/>
+        <PageContent activeItemID={activeItemID}>
+            <slot/>
+        </PageContent>
+    </body>
+</html>
