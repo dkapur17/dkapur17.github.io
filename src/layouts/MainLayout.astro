@@ -1,12 +1,26 @@
 ---
 import Header from '../components/Header.astro';
 import PageContent from '../components/PageContent.astro';
+import Footer from '../components/Footer.astro';
 
 const {pageTitle, activeItemID} = Astro.props;
 ---
 
-<html>
+<html data-theme="dark">
     <head>
+        <script is:inline>
+            if (localStorage.getItem("theme") === null) {
+              document.documentElement.setAttribute("data-theme", "dracula");
+            } else
+              document.documentElement.setAttribute(
+                "data-theme",
+                localStorage.getItem("theme")
+              );
+          </script>
+          <script>
+            import { themeChange } from 'theme-change';
+            themeChange();
+          </script>
         <meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
@@ -18,5 +32,12 @@ const {pageTitle, activeItemID} = Astro.props;
         <PageContent activeItemID={activeItemID}>
             <slot/>
         </PageContent>
+        <Footer/>
     </body>
 </html>
+
+<style>
+    body {
+        user-select: none;
+    }
+</style>
