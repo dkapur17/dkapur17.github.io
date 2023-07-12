@@ -4,6 +4,7 @@ import PageContent from '../components/PageContent.astro';
 import Footer from '../components/Footer.astro';
 
 const {pageTitle, activeItemID} = Astro.props;
+
 ---
 
 <html data-theme="dark">
@@ -32,12 +33,33 @@ const {pageTitle, activeItemID} = Astro.props;
         <PageContent activeItemID={activeItemID}>
             <slot/>
         </PageContent>
-        <Footer/>
     </body>
 </html>
 
 <style>
     body {
         user-select: none;
+    }
+    * {
+      scrollbar-width: thin;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background: #555;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: #aaa;
+    }
+    
+    *::-webkit-scrollbar-thumb:hover {
+      background: #888;
     }
 </style>

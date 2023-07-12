@@ -1,5 +1,6 @@
 ---
 import SideBar from "./SideBar.astro";
+import Footer from "./Footer.astro";
 
 const {activeItemID} = Astro.props;
 ---
@@ -14,9 +15,10 @@ const {activeItemID} = Astro.props;
        <span class="mx-2 text-xl">🌚</span>
     </span>
     </div>
-    <div class="p-9 lg:p-20">
+    <div class="p-9 lg:px-20 py-10 min-h-screen">
       <slot />
     </div>
+    <Footer />
   </div> 
   <SideBar {activeItemID}/>
 </div>
