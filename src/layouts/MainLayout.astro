@@ -1,9 +1,10 @@
 ---
 import Header from '../components/Header.astro';
 import PageContent from '../components/PageContent.astro';
-import Footer from '../components/Footer.astro';
 
-const {pageTitle, activeItemID} = Astro.props;
+const {pageTitle, activeItemID, showSidebar=true} = Astro.props;
+
+import '../styles/global.css';
 
 ---
 
@@ -26,11 +27,11 @@ const {pageTitle, activeItemID} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-        <title>Dhruv Kapur - {pageTitle}</title>
+        <title>Dhruv Kapur | {pageTitle}</title>
     </head>
     <body>
         <Header/>
-        <PageContent activeItemID={activeItemID}>
+        <PageContent {activeItemID} {showSidebar}>
             <slot/>
         </PageContent>
     </body>
